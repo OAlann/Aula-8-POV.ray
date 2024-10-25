@@ -1,0 +1,11 @@
+Antialias=Off
+
+Input_File_Name=teste.pov
+
+Initial_Frame=1
+Final_Frame=300
+Initial_Clock=1
+Final_Clock=300
+               
+Cyclic_Animation=on
+Pause_when_Done=off

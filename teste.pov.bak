@@ -1,0 +1,28 @@
+//axis_xyz.inc
+#macro Axis( AxisLen, RedTexture, WhiteTexture)
+union
+{ cylinder
+{ <0,-AxisLen,0>,<0,AxisLen,0>,0.05
+texture
+{ checker
+texture{RedTexture}
+texture{WhiteTexture}
+translate<0.1,0,0.1>
+}
+}// end of cylinder
+cone
+{ <0,AxisLen,0>,0.2,<0,AxisLen+0.7,0>,0
+texture{RedTexture}}
+} // end of union "AchseY"
+#end // of macro Achse (AchsenLen)
+#macro AxisXYZ( AxisLenX, AxisLenY, AxisLenZ, TexRed, TexWhite)
+union
+{ object{Axis(AxisLenX, TexRed, TexWhite) rotate< 0,0,-90>} // x-Achse
+object{Axis(AxisLenY, TexRed, TexWhite) rotate< 0,0, 0>} // y-Achse
+object{Axis(AxisLenZ, TexRed, TexWhite) rotate<90,0, 0>} // z-Achse
+text
+{ ttf"arial.ttf", "x", 0.15, 0 texture{TexRed}
+scale 0.5 translate <AxisLenX+0.05,0.4,-0.10>
+}
+text
+LOOPS
